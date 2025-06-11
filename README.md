@@ -49,7 +49,177 @@ Java is a platform-independent, object-oriented programming language. It follows
 
 ---
 
-## 📚 Next Topics
 
-- Variables and Data Types
-- Real-time ride app example using Java
+
+
+
+
+# 🧠 Module 02: Variables, Data Types & Operators — In Depth (Java)
+
+This module teaches how variables, data types, and operators work in Java using real-time examples (like Uber, Swiggy), and includes FAANG-style interview questions and hands-on logic building.
+
+---
+
+## 1️⃣ What is a Variable?
+
+A **variable** is a name given to a memory location where data can be stored and changed during program execution.
+
+### 🧠 Real-Life Analogy
+
+Imagine your brain as memory (RAM):
+
+| Real-Life Item        | Java Variable              |
+|-----------------------|----------------------------|
+| Your name             | `String name = "Udhay";`   |
+| Your age              | `int age = 25;`            |
+| Coffee in hand        | `boolean hasCoffee = true;` |
+| Temperature around    | `double temp = 28.5;`      |
+
+### ✅ Code Example
+
+```java
+public class PersonInfo {
+    public static void main(String[] args) {
+        String name = "Udhay";
+        int age = 25;
+        boolean isWorking = true;
+        double salary = 50000.75;
+
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Working: " + isWorking);
+        System.out.println("Salary: ₹" + salary);
+    }
+}
+```
+
+---
+
+## 2️⃣ Java Data Types
+
+Java has two main categories:
+
+### 🔹 A. Primitive Data Types (8 total)
+
+| Type   | Size     | Example        | Description                         |
+|--------|----------|----------------|-------------------------------------|
+| int    | 4 bytes  | 100            | Whole numbers                       |
+| double | 8 bytes  | 199.99         | Decimal numbers (high precision)    |
+| boolean| 1 bit    | true / false   | Logical values                      |
+| char   | 2 bytes  | 'A'            | A single character                  |
+| long   | 8 bytes  | 1234567890L    | Very large integers                 |
+| float  | 4 bytes  | 12.5f          | Decimal (less precision)            |
+| byte   | 1 byte   | 127            | Small memory-efficient integer      |
+| short  | 2 bytes  | 32000          | Medium-sized integer                |
+
+### 🔹 B. Non-Primitive Data Types
+
+| Type   | Example                         | Description                          |
+|--------|----------------------------------|--------------------------------------|
+| String | "Hello"                         | A sequence of characters             |
+| Array  | `int[] nums = {1, 2, 3};`       | Collection of fixed-size elements    |
+| Class  | `class Car {}`                  | Blueprint for an object              |
+| Object | `Object obj = new Object();`    | Superclass of all classes            |
+
+---
+
+## 3️⃣ Java Operators
+
+Operators help us perform operations on variables and values.
+
+### ➕ Arithmetic Operators
+
+| Operator | Description   | Example (a = 10, b = 3) |
+|----------|---------------|-------------------------|
+| +        | Addition      | a + b = 13              |
+| -        | Subtraction   | a - b = 7               |
+| *        | Multiplication| a * b = 30              |
+| /        | Division      | a / b = 3               |
+| %        | Modulo        | a % b = 1               |
+
+### ⚖️ Comparison Operators
+
+| Operator | Description            | Example     |
+|----------|------------------------|-------------|
+| ==       | Equal to               | a == b      |
+| !=       | Not equal to           | a != b      |
+| >        | Greater than           | a > b       |
+| <        | Less than              | a < b       |
+| >=       | Greater than or equal  | a >= b      |
+| <=       | Less than or equal     | a <= b      |
+
+### 🔁 Logical Operators
+
+| Operator | Description    | Example (x = true, y = false) |
+|----------|----------------|-------------------------------|
+| &&       | Logical AND    | x && y → false                |
+| ||       | Logical OR     | x || y → true                 |
+| !        | Logical NOT    | !x → false                    |
+
+---
+
+### 🔐 Real-Time Use Case: Swiggy Order Summary
+
+```java
+public class SwiggyOrder {
+    public static void main(String[] args) {
+        String item = "Paneer Pizza";
+        int qty = 2;
+        double price = 199.50;
+        boolean isDelivered = true;
+
+        double total = qty * price;
+
+        System.out.println("Order: " + item);
+        System.out.println("Quantity: " + qty);
+        System.out.println("Total Bill: ₹" + total);
+        System.out.println("Delivered: " + isDelivered);
+    }
+}
+```
+
+---
+
+## 💡 Hands-On Task: Flight Ticket System
+
+Create a `FlightTicket.java` with the following:
+
+```java
+String passengerName;
+int age;
+String fromCity;
+String toCity;
+double ticketPrice;
+boolean isCheckedIn;
+```
+
+Print a flight ticket using these values in a user-friendly format.
+
+---
+
+## 🧠 FAANG-Style Interview Questions
+
+1. **What is the default value of a boolean in Java?**  
+   ✅ `false` (Only for instance variables. Local variables must be explicitly initialized.)
+
+2. **Can a float variable hold `"100.0"`?**  
+   ❌ No. `"100.0"` is a String. Must convert:
+
+```java
+float f = Float.parseFloat("100.0");
+```
+
+3. **Difference between `==` and `.equals()` for Strings?**
+
+| Operator     | Compares             |
+|--------------|----------------------|
+| ==           | Reference (memory)   |
+| .equals()    | Actual content       |
+
+```java
+String a = new String("udhay");
+String b = new String("udhay");
+
+System.out.println(a == b);       // false
+System.out.println(a.equals(b));  // true
+```
