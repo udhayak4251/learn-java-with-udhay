@@ -223,3 +223,179 @@ String b = new String("udhay");
 System.out.println(a == b);       // false
 System.out.println(a.equals(b));  // true
 ```
+
+
+# 📘 Module 03: Control Flow in Java (Branching & Loops)
+
+Control flow lets your program **make decisions** (`if`, `switch`) and **repeat actions** (`for`, `while`, etc.).
+
+---
+
+## 1️⃣ Conditional Branching
+
+### 🔸 `if`, `else if`, `else`
+
+Real-time use: Swiggy delivery status
+
+> If distance < 2km → show "Fast Delivery"
+> Else if distance < 5km → "Standard Delivery"
+> Else → "Slow Delivery"
+
+```java
+int distance = 4;
+
+if (distance < 2) {
+    System.out.println("Fast Delivery");
+} else if (distance < 5) {
+    System.out.println("Standard Delivery");
+} else {
+    System.out.println("Slow Delivery");
+}
+```
+
+---
+
+### 🔸 `switch` Statement
+
+Real-time use: Days of the week in a calendar app.
+
+```java
+int day = 3;
+
+switch (day) {
+    case 1: System.out.println("Sunday"); break;
+    case 2: System.out.println("Monday"); break;
+    case 3: System.out.println("Tuesday"); break;
+    default: System.out.println("Invalid day");
+}
+```
+
+> ✅ Use `switch` when checking a variable against multiple constant values (especially `int`, `char`, `String` in Java 7+).
+
+---
+
+## 2️⃣ Loops
+
+Used to repeat tasks — essential in automation, billing systems, or retry logics.
+
+---
+
+### 🔀 `for` Loop
+
+> Print 5 Swiggy orders.
+
+```java
+for (int i = 1; i <= 5; i++) {
+    System.out.println("Order #" + i);
+}
+```
+
+---
+
+### 🔀 `while` Loop
+
+> Count down a delivery ETA.
+
+```java
+int eta = 5;
+
+while (eta > 0) {
+    System.out.println("ETA: " + eta + " minutes");
+    eta--;
+}
+```
+
+---
+
+### 🔀 `do-while` Loop
+
+> Always run at least once (example: user input menu)
+
+```java
+int option;
+
+do {
+    System.out.println("1. Order Food\n2. Exit");
+    option = 2; // imagine user input
+} while (option != 2);
+```
+
+---
+
+### 🔃 `break` and `continue`
+
+```java
+for (int i = 1; i <= 5; i++) {
+    if (i == 3) continue; // skip 3
+    if (i == 4) break;    // stop loop at 4
+    System.out.println(i);
+}
+```
+
+---
+
+## 🧪 Real-Time Problem: Uber Driver Rating
+
+```java
+int rating = 5;
+
+if (rating == 5) {
+    System.out.println("Excellent Service");
+} else if (rating >= 3) {
+    System.out.println("Good Service");
+} else {
+    System.out.println("Needs Improvement");
+}
+```
+
+---
+
+## 💡 Challenge: Water Reminder App
+
+Write a program that prints:
+
+```
+Drink water reminder in:
+60 mins
+45 mins
+30 mins
+15 mins
+```
+
+> Use a `for` loop from 60 to 15 (step -15).
+
+---
+
+## 🧠 FAANG-Style Interview Questions
+
+1. **What is the difference between `while` and `do-while`?**
+
+   | `while`                 | `do-while`                    |
+   | ----------------------- | ----------------------------- |
+   | Checks before loop body | Executes body before checking |
+
+2. **Can `switch` work with Strings in Java?**
+   ✅ Yes, from Java 7 onward.
+
+3. **How to skip the current iteration inside a loop?**
+   👉 Use `continue`.
+
+---
+
+## 📚 Summary
+
+| Concept    | Use Case                    |
+| ---------- | --------------------------- |
+| `if-else`  | Decision making             |
+| `switch`   | Multi-way decisions         |
+| `for`      | Fixed iteration             |
+| `while`    | Condition-based loop        |
+| `do-while` | At least one guaranteed run |
+
+---
+
+## ✅ Next Step
+
+Ready to dive into **Module 04: OOP Basics (class, object, constructor, etc.)**?
+
+Let your brain loop this module in memory and move on → 🚀
