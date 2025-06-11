@@ -811,4 +811,188 @@ class B extends A {
 
 
 
+# 🧠 Module 06: Abstraction, Interfaces & Encapsulation in Java
+
+This module covers three foundational pillars of Java OOP:
+
+* **Abstraction** → Hides implementation
+* **Interfaces** → Achieve abstraction and multiple inheritance
+* **Encapsulation** → Secure your code
+
+We’ll explore each with real-life examples and prepare for FAANG-style interviews.
+
+---
+
+## 🎭 1️⃣ What is Abstraction?
+
+> Abstraction is the process of hiding implementation details and showing only the **essential features** of an object.
+
+### 📦 Real-life Analogy
+
+* When you use a Swiggy app, you tap "Order" and don’t care **how** payment is processed internally.
+* You use the abstracted version (UI) and trust the internals (payment API).
+
+### ✅ Java Ways to Achieve Abstraction
+
+1. **Abstract classes** (0–100% abstraction)
+2. **Interfaces** (100% abstraction until Java 7, supports default methods since Java 8)
+
+---
+
+## 🧰 2️⃣ Abstract Classes
+
+An `abstract class` is a class that **cannot be instantiated** and may have **abstract methods** (no body).
+
+```java
+abstract class Vehicle {
+    abstract void start();
+
+    void fuel() {
+        System.out.println("Fuel is petrol");
+    }
+}
+
+class Car extends Vehicle {
+    void start() {
+        System.out.println("Car started");
+    }
+}
+```
+
+### 🔒 Key Rules
+
+* Can have both abstract and concrete methods
+* Cannot be instantiated
+* Must be inherited
+
+---
+
+## 🌐 3️⃣ Interfaces in Java
+
+An `interface` defines a **contract** — methods that must be implemented by classes.
+
+```java
+interface Flyable {
+    void fly(); // implicitly public & abstract
+}
+
+class Drone implements Flyable {
+    public void fly() {
+        System.out.println("Drone flying");
+    }
+}
+```
+
+### 🧠 Java Interface Rules
+
+| Feature              | Java 7            | Java 8+   |
+| -------------------- | ----------------- | --------- |
+| Abstract methods     | ✅ Only            | ✅ Only    |
+| Static methods       | ❌                 | ✅ Allowed |
+| Default methods      | ❌                 | ✅ Allowed |
+| Multiple inheritance | ✅ (via interface) | ✅         |
+
+```java
+interface A {
+    default void greet() {
+        System.out.println("Hi from A");
+    }
+}
+interface B {
+    default void greet() {
+        System.out.println("Hi from B");
+    }
+}
+
+class C implements A, B {
+    public void greet() {
+        A.super.greet(); // resolve ambiguity
+    }
+}
+```
+
+---
+
+## 🔐 4️⃣ Encapsulation in Java
+
+> Encapsulation means **binding data and methods** that operate on the data into a single unit — class.
+
+It’s implemented using:
+
+* `private` variables
+* `public` getter and setter methods
+
+### 🚖 Real-life Analogy
+
+When booking Uber, you set destination but don’t access its `location` variable directly — the app controls it internally.
+
+### ✅ Code Example
+
+```java
+class BankAccount {
+    private double balance;
+
+    public void deposit(double amount) {
+        if (amount > 0) balance += amount;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+}
+```
+
+---
+
+## 🧠 FAANG-Style Interview Questions
+
+1. **What is abstraction and how is it implemented in Java?**
+
+   * Hiding internal details using abstract classes or interfaces.
+
+2. **Can we instantiate an abstract class?**
+
+   * ❌ No.
+
+3. **Can abstract classes have constructors?**
+
+   * ✅ Yes (used for base setup).
+
+4. **Can abstract classes have static methods?**
+
+   * ✅ Yes.
+
+5. **What is the difference between abstract class and interface?**
+
+   * Abstract class can have constructors, variables, methods.
+   * Interface is pure abstraction, supports multiple inheritance.
+
+6. **Why are all interface methods public and abstract by default?**
+
+   * To define a contract for implementing classes.
+
+7. **Can we use multiple interfaces in one class?**
+
+   * ✅ Yes. Interfaces solve the diamond problem.
+
+8. **What is encapsulation and why is it important?**
+
+   * Protects data. Prevents unauthorized access.
+
+9. **What is a marker interface?**
+
+   * Interface with no methods. E.g., `Serializable` — used to mark a class with metadata.
+
+---
+
+## 📊 Summary Table
+
+| Concept       | Implemented By             | Purpose                        |
+| ------------- | -------------------------- | ------------------------------ |
+| Abstraction   | Abstract class / Interface | Hide implementation            |
+| Interface     | `interface` keyword        | Achieve abstraction, contracts |
+| Encapsulation | `private`, `get/set`       | Secure and control data        |
+
+---
+
 
