@@ -594,5 +594,221 @@ acc.showBalance();
 ---
 
 
+# 🧱 Module 05: Inheritance & Polymorphism in Java
+
+This module covers two of the most powerful OOP concepts — **Inheritance** and **Polymorphism**, which are core to Java and essential for real-world development and FAANG interviews.
+
+---
+
+## 🧬 1️⃣ What is Inheritance?
+
+> Inheritance allows a class to **acquire properties and methods of another class**.
+
+The class that is inherited from is called the **superclass** (or parent), and the class that inherits is called the **subclass** (or child).
+
+### 📦 Real-life Analogy
+
+A "DeliveryBoy" class can inherit common behavior from a "Person" class (name, age, walk()).
+
+```java
+class Person {
+    String name;
+
+    void walk() {
+        System.out.println(name + " is walking");
+    }
+}
+
+class DeliveryBoy extends Person {
+    void deliver() {
+        System.out.println(name + " is delivering an order");
+    }
+}
+
+DeliveryBoy d = new DeliveryBoy();
+d.name = "Udhay";
+d.walk();     // inherited
+d.deliver();  // own method
+```
+
+---
+
+## 🧱 2️⃣ Types of Inheritance in Java
+
+| Type         | Supported in Java? | Description                     |
+| ------------ | ------------------ | ------------------------------- |
+| Single       | ✅ Yes              | One class inherits another      |
+| Multilevel   | ✅ Yes              | Class A → Class B → Class C     |
+| Hierarchical | ✅ Yes              | One class has multiple children |
+| Multiple     | ❌ Not directly     | (Handled via interfaces)        |
+
+### 🔁 Multilevel Example
+
+```java
+class A {
+    void showA() { System.out.println("A"); }
+}
+class B extends A {
+    void showB() { System.out.println("B"); }
+}
+class C extends B {
+    void showC() { System.out.println("C"); }
+}
+
+C obj = new C();
+obj.showA(); // A
+obj.showB(); // B
+obj.showC(); // C
+```
+
+---
+
+## 👥 3️⃣ What is Polymorphism?
+
+> Polymorphism means "many forms" — same action behaves differently based on context.
+
+### 🧠 Types of Polymorphism
+
+| Type         | When It Happens    | Java Support         |
+| ------------ | ------------------ | -------------------- |
+| Compile-time | During compilation | ✅ Method Overloading |
+| Runtime      | During execution   | ✅ Method Overriding  |
+
+---
+
+## 🧮 4️⃣ Method Overloading (Compile-Time Polymorphism)
+
+> Same method name, **different parameter list** in the same class.
+
+```java
+class Calculator {
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    double add(double a, double b) {
+        return a + b;
+    }
+}
+
+Calculator calc = new Calculator();
+System.out.println(calc.add(2, 3));       // 5
+System.out.println(calc.add(2.5, 3.5));   // 6.0
+```
+
+---
+
+## 🔄 5️⃣ Method Overriding (Runtime Polymorphism)
+
+> A subclass **overrides** a method of its parent class.
+
+```java
+class Animal {
+    void sound() {
+        System.out.println("Some sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Bark");
+    }
+}
+
+Animal a = new Dog();
+a.sound();  // Bark
+```
+
+> 🧠 Even though the reference is `Animal`, it calls `Dog`'s version — **runtime polymorphism**.
+
+---
+
+## 🎭 6️⃣ `super` Keyword in Inheritance
+
+`super` is used to:
+
+* Call parent class constructor: `super()`
+* Access parent class methods or variables
+
+```java
+class A {
+    A() { System.out.println("A constructor"); }
+    void greet() { System.out.println("Hello from A"); }
+}
+
+class B extends A {
+    B() {
+        super(); // Calls A's constructor
+        System.out.println("B constructor");
+    }
+
+    void greet() {
+        super.greet(); // Calls A's greet
+        System.out.println("Hello from B");
+    }
+}
+```
+
+---
+
+## 🧠 FAANG-Style Interview Questions
+
+1. **What is inheritance? Why is it used?**
+
+   * It allows code reuse and models "is-a" relationships.
+
+2. **Can Java support multiple inheritance?**
+
+   * ❌ Not via classes, ✅ yes via interfaces.
+
+3. **What is polymorphism in OOP?**
+
+   * Ability of one interface to behave differently in different situations.
+
+4. **What is the difference between overloading and overriding?**
+
+   * Overloading = same method name, different parameters
+   * Overriding = same method, same parameters, different classes
+
+5. **What are the types of inheritance supported in Java?**
+
+   * Single, Multilevel, Hierarchical (not multiple)
+
+6. **What is runtime polymorphism and how is it achieved in Java?**
+
+   * Via method overriding using parent class references.
+
+7. **What happens if we don’t use @Override annotation?**
+
+   * Java won’t catch typos. Best practice: always use it.
+
+8. **Why can't Java have multiple inheritance via classes?**
+
+   * To avoid **diamond problem** (ambiguity).
+
+9. **Can constructors be overridden?**
+
+   * ❌ No. Constructors are not inherited.
+
+10. **Can we override static methods?**
+
+* ❌ No. Static methods belong to class, not instance.
+
+---
+
+## 📝 Summary Table
+
+| Concept              | Java Support                 | Key Feature                       |
+| -------------------- | ---------------------------- | --------------------------------- |
+| Inheritance          | ✅                            | Code reuse                        |
+| Method Overloading   | ✅                            | Compile-time polymorphism         |
+| Method Overriding    | ✅                            | Runtime polymorphism              |
+| `super`              | ✅                            | Access parent constructor/methods |
+| Multiple Inheritance | ❌ via class, ✅ via interface | Avoids ambiguity                  |
+
+---
+
+
 
 
