@@ -394,8 +394,205 @@ Drink water reminder in:
 
 ---
 
-## ✅ Next Step
+# 🧱 Module 04: Object-Oriented Programming (OOP) Basics in Java
 
-Ready to dive into **Module 04: OOP Basics (class, object, constructor, etc.)**?
+This module introduces the **core concepts of OOP** — the foundation for scalable, maintainable Java applications. These concepts are frequently asked in FAANG interviews.
 
-Let your brain loop this module in memory and move on → 🚀
+---
+
+## 📦 1️⃣ Class & Object
+
+### ➤ What is a Class?
+
+A **class** is a blueprint for creating objects (instances). It defines **state (variables)** and **behavior (methods)**.
+
+> 🧠 Real-world Analogy: A class is like the blueprint of a car.
+
+```java
+class Car {
+    String color;
+    int speed;
+
+    void drive() {
+        System.out.println("Driving at " + speed + " km/hr");
+    }
+}
+```
+
+### ➤ What is an Object?
+
+An **object** is an instance of a class.
+
+```java
+Car myCar = new Car();
+myCar.color = "Red";
+myCar.speed = 80;
+myCar.drive();
+```
+
+---
+
+## 🚪 2️⃣ Constructors
+
+A **constructor** is a special method called when an object is created. Its job is to **initialize object values**.
+
+```java
+class User {
+    String name;
+    int age;
+
+    // Constructor
+    User(String n, int a) {
+        name = n;
+        age = a;
+    }
+}
+
+User u = new User("Udhay", 25);
+```
+
+---
+
+## 🔁 3️⃣ Constructor Overloading & Chaining
+
+### ➤ Constructor Overloading
+
+Creating multiple constructors with different parameter lists.
+
+```java
+class Book {
+    String title;
+    int pages;
+
+    Book(String t) {
+        title = t;
+        pages = 100;
+    }
+
+    Book(String t, int p) {
+        title = t;
+        pages = p;
+    }
+}
+```
+
+### ➤ Constructor Chaining using `this()`
+
+You can call **one constructor from another** using `this()`.
+
+> 🧠 Real-life: If quantity isn't given in a Swiggy order, assume it's 1.
+
+```java
+class Order {
+    String item;
+    int quantity;
+
+    Order(String item) {
+        this(item, 1); // calls the second constructor
+    }
+
+    Order(String item, int qty) {
+        this.item = item;
+        this.quantity = qty;
+    }
+}
+
+Order o1 = new Order("Pizza");        // quantity = 1
+Order o2 = new Order("Burger", 2);     // quantity = 2
+```
+
+---
+
+## 🔐 4️⃣ Access Modifiers
+
+Access modifiers control **who can access a class's members**.
+
+| Modifier    | Access Level                 |
+| ----------- | ---------------------------- |
+| `public`    | Accessible from anywhere     |
+| `private`   | Only within the class        |
+| `protected` | Same package or subclass     |
+| (default)   | Only within the same package |
+
+```java
+class BankAccount {
+    private double balance;
+
+    public void deposit(double amount) {
+        balance += amount;
+    }
+
+    public void showBalance() {
+        System.out.println("Balance: " + balance);
+    }
+}
+```
+
+---
+
+## 🧠 Real-Time Project: Bank System
+
+```java
+class BankAccount {
+    private String owner;
+    private double balance;
+
+    BankAccount(String name, double amount) {
+        owner = name;
+        balance = amount;
+    }
+
+    void deposit(double amt) {
+        balance += amt;
+    }
+
+    void showBalance() {
+        System.out.println(owner + "'s balance: " + balance);
+    }
+}
+
+BankAccount acc = new BankAccount("Udhay", 10000);
+acc.deposit(2500);
+acc.showBalance();
+```
+
+---
+
+## 🧠 FAANG-Style Interview Questions
+
+1. **What is the difference between a class and an object?**
+
+   * Class is a blueprint. Object is the actual instance.
+
+2. **What are constructors in Java?**
+
+   * Special methods to initialize objects.
+
+3. **Can you overload constructors?**
+   ✅ Yes, using different parameter lists.
+
+4. **How do you reuse code across constructors?**
+   ✅ Use `this()` to call another constructor.
+
+5. **What is the role of access modifiers?**
+
+   * To restrict access to class members.
+
+---
+
+## 📝 Summary Table
+
+| Concept              | Analogy                 | Java Example                          |
+| -------------------- | ----------------------- | ------------------------------------- |
+| Class                | Blueprint               | `class Car {}`                        |
+| Object               | Real instance           | `Car myCar = new Car();`              |
+| Constructor          | Initial setup           | `User("Udhay", 25)`                   |
+| Constructor Overload | Multiple order forms    | `Order("Pizza")`, `Order("Pizza", 2)` |
+| `this()`             | Default parameter reuse | `this(item, 1);`                      |
+| Access Modifiers     | Lock & key              | `private balance`                     |
+
+---
+
+
+
+
